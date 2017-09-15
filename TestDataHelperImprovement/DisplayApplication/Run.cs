@@ -12,6 +12,12 @@ namespace DisplayApplication
                                                                  .Build()).Build();
 
             Console.WriteLine(invoice.Recipient.Address.PostCode.PostCodeDetails);
+
+            var address = Build.Address().Select(a =>
+            {
+                a.City = "Paris";
+                return a;
+            }).Build();
         }
     }
 }
