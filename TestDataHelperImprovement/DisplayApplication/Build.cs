@@ -2,11 +2,16 @@
 
 namespace DisplayApplication
 {
-    internal static class Build
+    public static class Build
     {
-        public static Builder<Address> Address()
+        public static readonly Builder<Address> Address;
+        static Build()
         {
-            return new Builder<Address>(new Address("", "London", new PostCode("CR85NG")));
+            Address = new Builder<Address>(new Address("", "", new PostCode("")));
+        }
+        public static Builder<Address> WithCity(this Builder<Address> b, string city)
+        {
+            return b.Select(a => a.WithCity(city));
         }
     }
 }
