@@ -16,6 +16,18 @@ namespace DisplayApplication
             var address = MyBuilder.Address.Select(a => a.WithCity("Paris")).Build();
 
             Console.WriteLine(address.City);
+
+            Address newAddress =
+                from pc in MyBuilder.PostCode
+                select new Address("Rue Morgue", "Paris", pc);
+
+            Console.WriteLine(newAddress.PostCode.PostCodeDetails);
+
+            Address newAddress2 =
+                from ad in MyBuilder.Address
+                select ad.WithCity("Cuba");
+
+            Console.WriteLine(newAddress2.City);
         }
     }
 }

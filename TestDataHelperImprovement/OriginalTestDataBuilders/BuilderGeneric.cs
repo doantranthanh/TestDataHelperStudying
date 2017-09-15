@@ -41,5 +41,10 @@ namespace OriginalTestDataBuilders
         {
             return this.item.GetHashCode();
         }
+
+        public static implicit operator T(BuilderGeneric<T> b)
+        {
+            return b.item;
+        }
     }
 }
