@@ -18,6 +18,8 @@ namespace DisplayApplication
                 a.City = "Paris";
                 return a;
             }).Build();
+
+            Console.WriteLine(address.City);
         }
     }
 }
