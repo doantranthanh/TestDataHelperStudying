@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace DisplayApplication
+namespace OriginalTestDataBuilders
 {
-    public class Builder<T>
+    public class BuilderGeneric<T>
     {
         private readonly T item;
 
-        public Builder(T item)
+        public BuilderGeneric(T item)
         {
             if (item == null)
             {
@@ -15,10 +15,10 @@ namespace DisplayApplication
             this.item = item;
         }
 
-        public Builder<T1> Select<T1>(Func<T, T1> f)
+        public BuilderGeneric<T1> Select<T1>(Func<T, T1> f)
         {
             var newItem = f(this.item);
-            return new Builder<T1>(newItem);
+            return new BuilderGeneric<T1>(newItem);
         }
 
         public T Build()
@@ -28,9 +28,11 @@ namespace DisplayApplication
 
         public override bool Equals(object obj)
         {
-            var other = obj as Builder<T>;
+            var other = obj as BuilderGeneric<T>;
             if (other == null)
+            {
                 return base.Equals(obj);
+            }
 
             return object.Equals(this.item, other.item);
         }

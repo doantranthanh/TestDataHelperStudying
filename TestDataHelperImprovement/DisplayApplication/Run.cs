@@ -13,7 +13,7 @@ namespace DisplayApplication
 
             Console.WriteLine(invoice.Recipient.Address.PostCode.PostCodeDetails);
 
-            var address = Build.Address.Select(a => a.WithCity("Paris")).Build();
+            var address = MyBuilder.Address.Select(a => a.WithCity("Paris")).Build();
 
             Console.WriteLine(address.City);
         }
